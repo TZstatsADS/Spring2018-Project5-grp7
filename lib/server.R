@@ -1,5 +1,3 @@
-library(shiny)
-library(d3heatmap)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
@@ -25,5 +23,4 @@ shinyServer(function(input, output) {
   output$hist1<-renderPlot({
     hist(info_AllCusine[1,])
   })
-  
 })

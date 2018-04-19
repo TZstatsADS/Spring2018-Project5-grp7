@@ -1,4 +1,6 @@
 ##### summary of all cuisine
+setwd("/Users/JHY/Documents/2018SpringCourse/Applied Data Science/Spring2018-Project5-grp_7/lib/")
+load("../data/cooking_data.RData")
 cuisine_type<-unique(cooking_data$cuisine)
 info_AllCusine<-c()
 for(type in cuisine_type){
