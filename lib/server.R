@@ -11,6 +11,16 @@ shinyServer(function(input, output) {
   #   dropdownMenu(type = "messages", .list = msgs)
   # })
   #output$packagePlot<-renderPlot()
+  output$hist_wholedata<-renderPlot({
+    reorder_size <- function(x) {
+      factor(x, levels = names(sort(table(x),decreasing=TRUE)))
+    }
+    ggplot(cooking_data)+
+      geom_bar(aes(reorder_size(cuisine),fill = cuisine),border = 'white')+
+      theme(axis.text.x=element_text(angle=45,hjust=1,vjust=0.5))+
+      xlab("Cuisine")
+  })
+  output$hist_
   output$heat_map<-renderD3heatmap({
     d3heatmap(
       info_AllCusine[,Top5_each_index],scale="row",dendrogram = "none",color="Blues"

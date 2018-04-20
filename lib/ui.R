@@ -29,8 +29,8 @@ shinyUI(
                 d3heatmapOutput("heat_map", width = "100%",height = 500)
         ),
         tabItem("top_n_ingredients",
-                plotOutput("hist1")
-                ),
+                plotOutput("hist_wholedata")
+        ),
         # tabItem("distribution_part",
         #   # fluidRow(
         #   #   box(
