@@ -1,5 +1,5 @@
 # ADS Project 5: 
-![image](../figs/cooking.jpg)
+[image](figs/cooking.jpg)
 Term: Spring 2018
 
 + Team # 7
