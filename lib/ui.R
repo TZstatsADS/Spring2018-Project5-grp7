@@ -1,6 +1,12 @@
 library(shiny)
 library(shinydashboard)
 library(d3heatmap)
+library(bubbles)
+library(slam)
+library(tm)
+library(RColorBrewer)
+library(wordcloud)
+library(ggplot2)
 # Define UI for application that draws a histogram
 shinyUI(
   dashboardPage(skin = "red",
@@ -9,8 +15,9 @@ shinyUI(
     dashboardSidebar(width = 200,
       sidebarMenu(
         menuItem("Cuisine Distribution", tabName = "distribution_part", icon = icon("braille"),startExpanded = TRUE,
+                 menuSubItem("General Information",tabName = "whole_data_hist"),
                  menuSubItem("Heat Map", tabName = "heat_map"),
-                 menuSubItem("Top N ingredients", tabName = "top_n_ingredients")),
+                 menuSubItem("Word Cloud", tabName = "word_cloud")),
         # sidebarSearchForm(textId = "searchText", buttonId = "searchButton",label = "Search..."),
         menuItem("Let's decide what to cook!", tabName = "model_part", icon = icon("th")),
         menuItem("Source code", icon = icon("file-code-o"), 
@@ -25,12 +32,23 @@ shinyUI(
                                 }
                                 '))),
       tabItems(
+        tabItem("whole_data_hist",
+                plotOutput("hist_wholedata")
+                ),
         tabItem("heat_map",
                 d3heatmapOutput("heat_map", width = "100%",height = 500)
-        ),
-        tabItem("top_n_ingredients",
-                plotOutput("hist_wholedata")
-        ),
+                ),
+        tabItem("word_cloud",
+                sidebarPanel(
+                  selectInput("selection", "Choose a cuisine:",
+                              choices = cuisine_type)
+                ),
+                mainPanel(
+                  wordcloud2Output("wordcloud2",width = "100%", height = "400px")
+                  #hr(),
+                  #textOutput("specific_ingre")
+                )
+                ),
         # tabItem("distribution_part",
         #   # fluidRow(
         #   #   box(
@@ -87,31 +105,4 @@ shinyUI(
     )
   )
 )
-  # navbarPage("Cusine recommendation",
-  #   tabPanel("Cusine Distribution",
-  #     div(class="outer",
-  #         tags$style(type = "text/css", ".outer {position: fixed; top: 41px; left: 0; right: 0; bottom: 0; overflow: hidden; padding: 0}"),)
-  #   ),
-  #   
-  #   tabPanel(
-  #     
-  #   )
-  # )
-  # Application title
-  #titlePanel("Old Faithful Geyser Data"),
-  
-  # Sidebar with a slider input for number of bins 
-  # sidebarLayout(
-  #   sidebarPanel(
-  #      sliderInput("bins",
-  #                  "Number of bins:",
-  #                  min = 1,
-  #                  max = 50,
-  #                  value = 30)
-  #   ),
-  #   
-  #   # Show a plot of the generated distribution
-  #   mainPanel(
-  #      plotOutput("distPlot")
-  #   )
-  # )
+
