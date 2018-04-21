@@ -13,7 +13,7 @@ prp(tree)
 prediction <- predict(tree, test_data[,-1], type = "class")
 table(prediction,test_data$cuisine)
 
-mean(prediction!=train_data[,1]) #0.870533
+
 mean(prediction!=test_data[,1])  #0.5555109
 ALL(tree)
 
@@ -33,3 +33,4 @@ ALL=function(model){
   message("Accuracy")
   print(round(cbind(trainAccuracy=trainAcc, testAccuracy=testAcc),3))
 }
+##############################
