@@ -44,7 +44,7 @@ shinyUI(
                               choices = cuisine_type)
                 ),
                 mainPanel(
-                  wordcloud2Output("wordcloud2",width = "100%", height = "400px")
+                  wordcloud2Output("wordcloud2",width = "100%", height = "500px")
                   #hr(),
                   #textOutput("specific_ingre")
                 )
