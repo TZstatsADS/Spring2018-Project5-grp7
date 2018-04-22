@@ -30,5 +30,11 @@ proj/
 
 Please see each subfolder for a README file.
 
+Contribution statements:
++ Anshuma Chandak :
++ Hanying Ji :
++ Lan Wen :
++ Qianhui Wan :
++ Xueying Ding :
 References:
-+[Kaggle Competition: What's cooking](https://www.kaggle.com/c/whats-cooking)
++ [Kaggle Competition: What's cooking](https://www.kaggle.com/c/whats-cooking)
