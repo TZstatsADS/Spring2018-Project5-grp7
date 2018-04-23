@@ -4,8 +4,9 @@ library(d3heatmap)
 library(bubbles)
 library(slam)
 library(tm)
+library(NLP)
 library(RColorBrewer)
-library(wordcloud)
+library(wordcloud2)
 library(ggplot2)
 # Define UI for application that draws a histogram
 shinyUI(
@@ -14,11 +15,12 @@ shinyUI(
                     dropdownMenuOutput("messageMenu")),
     dashboardSidebar(width = 200,
       sidebarMenu(
-        menuItem("Cuisine Distribution", tabName = "distribution_part", icon = icon("braille"),startExpanded = TRUE,
+        menuItem("Introduction",tabName = "Introduction",startExpanded = TRUE),
+        menuItem("Cuisine Distribution", tabName = "distribution_part", icon = icon("braille"),
                  menuSubItem("General Information",tabName = "whole_data_hist"),
-                 menuSubItem("Heat Map", tabName = "heat_map"),
                  menuSubItem("Word Cloud", tabName = "word_cloud")),
         # sidebarSearchForm(textId = "searchText", buttonId = "searchButton",label = "Search..."),
+        menuItem("Model Comparsion",tabName = "model_comp"),
         menuItem("Let's decide what to cook!", tabName = "model_part", icon = icon("th")),
         menuItem("Source code", icon = icon("file-code-o"), 
                  href = "https://github.com/xxxxxxxx")
@@ -32,22 +34,33 @@ shinyUI(
                                 }
                                 '))),
       tabItems(
+        tabItem("Introduction",
+          "This is Introduction to the project"
+        ),
+        tabItem("model_comp",
+          "This page is talking about the modeling"
+        ),
         tabItem("whole_data_hist",
                 plotOutput("hist_wholedata")
-                ),
-        tabItem("heat_map",
-                d3heatmapOutput("heat_map", width = "100%",height = 500)
-                ),
+        ),
+        # tabItem("",
+        #         
+        #         ),
         tabItem("word_cloud",
-                sidebarPanel(
-                  selectInput("selection", "Choose a cuisine:",
-                              choices = cuisine_type)
-                ),
-                mainPanel(
-                  wordcloud2Output("wordcloud2",width = "100%", height = "500px")
-                  #hr(),
-                  #textOutput("specific_ingre")
+                selectInput("selection", "Choose a cuisine:",choices = cuisine_type),
+                # fluidRow(
+                #   wordcloud2Output("wordcloud2",width = "100%", height = "500px")
+                # ),
+                fluidRow(
+                  # wordcloud2Output("wordcloud2"),
+                  textOutput("specific_ingre")
                 )
+                
+                # fluidRow(
+                #   mainPanel(
+                    # textOutput("specific_ingre")
+                #   )
+                # )
                 ),
         # tabItem("distribution_part",
         #   # fluidRow(
@@ -83,7 +96,7 @@ shinyUI(
             sidebarPanel(width=100,
               div(id="facilities",
                   helpText("choose the ingredients you have, we will make the best choice of cuisine for you."),
-                  selectInput("check_ingre","What ingredients you have:",list("American", "happy lemon","sad lemon","Chinese", "Italian", "Japanese", "Pizza", "Others"),multiple=TRUE),
+                  selectInput("check_ingre","What ingredients you have:",colnames(info_AllCuisine),multiple=TRUE),
                   checkboxInput("check_cb1", c("I wanna more than 1 recommendation(I can buy more new ingredients)"), value = T)
               ),
               div(id = "action",

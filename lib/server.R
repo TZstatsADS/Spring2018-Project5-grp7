@@ -34,9 +34,10 @@ shinyServer(function(input, output,session) {
   output$wordcloud2 <- renderWordcloud2({
     wordcloud2(ingre_freq[,c("names",input$selection)],color = "random-light")
   })
-  # output$specific_ingre<-renderText({
-  #   names(which(colSums(info_AllCuisine_1[-which(input$selection==cuisine_type),])==0))
-  # })
+
+  output$specific_ingre<-renderText({
+      names(which(colSums(info_AllCuisine_1[-which(input$selection==cuisine_type),])==0))
+   })
   output$model_result <- renderText({ 
     "You best choice is Chinese Cuisine!We also recommend these cuisines for you: XXX,XXX,XXX. Choose the one you prefer. Then you may need to buy these ingredients"
   })

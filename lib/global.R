@@ -1,5 +1,20 @@
 ##### summary of all cuisine
 setwd("/Users/JHY/Documents/2018SpringCourse/Applied Data Science/Spring2018-Project5-grp_7/lib/")
+# train<-fromJSON("../data/train.json")
+# test<-fromJSON("../data/test.json")
+# 
+# ingredients<-unique(unlist(train$ingredients))
+# cuisine_type<-unique(unlist(train$cuisine))
+# cooking_data<-matrix(0,nrow=dim(train),ncol=length(ingredients))
+# colnames(cooking_data)<-ingredients
+# dataset_transfer<-function(data,ingre){
+#   for(a in 1:nrow(data)){
+#     data[a,colnames(data)%in%ingre[[a]]]<-1
+#   }
+#   return(data)
+# }
+# cooking_data<-dataset_transfer(cooking_data,train$ingredients)
+
 load("../data/cooking_data.RData")
 cuisine_type<-unique(cooking_data$cuisine)
 info_AllCuisine<-c()
