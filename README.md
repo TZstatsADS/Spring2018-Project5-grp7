@@ -1,9 +1,9 @@
-# ADS Project 5: 
+# ADS Project 5
 ![image](figs/cooking.jpg)
 Term: Spring 2018
 
 + Team # 7
-+ **Projec title**:
++ **Project Title** : What shall we eat tonight? 
 + **Team members**
 	+ Anshuma Chandak (ac4258)
 	+ Hanying Ji (hj2473)
