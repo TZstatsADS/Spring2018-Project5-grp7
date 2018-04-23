@@ -3,7 +3,7 @@
 Term: Spring 2018
 
 + Team # 7
-+ ## What shall we eat tonight?:
++ **Project Title** : What shall we eat tonight? 
 + **Team members**
 	+ Anshuma Chandak (ac4258)
 	+ Hanying Ji (hj2473)
