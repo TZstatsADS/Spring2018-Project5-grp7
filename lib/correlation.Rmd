@@ -1,0 +1,59 @@
+---
+title: "correlation"
+output: html_document
+---
+
+```{r}
+correlation <- cor(t(info_AllCuisine),use = "pairwise.complete.obs",method = "pearson")
+correlation <- round(correlation,4)
+```
+
+```{r}
+weight_bestn <- function(data,n = 1){
+  neigh <- matrix(NA,nrow = 20,ncol = n)
+  for(i in 1:nrow(data)){
+    index <- order(abs(data[i,]),decreasing = TRUE)
+    index <- index[2:(n+1)]
+    #neigh[[i]] <- colnames(data)[index] 
+    neigh[i,] <- colnames(data)[index] 
+  }
+  return(neigh)
+}
+```
+
+```{r}
+neigh <- weight_bestn(correlation,n = 2)
+df <- cbind(rownames(correlation),neigh)
+```
+
+
+
+
+
+
+
+#try vector similarity
+#the result is same as pearson similarity
+```{r}
+ # library("lsa")
+ # correlation2 <- cosine(t(info_AllCuisine))
+ #correlation2 <- round(correlation2,4)
+```
+
+```{r}
+ # weight_bestn <- function(data,n = 1){
+ #   neigh <- matrix(NA,nrow = 20,ncol = n)
+ #   for(i in 1:nrow(data)){
+ #     index <- order(abs(data[i,]),decreasing = TRUE)
+ #     index <- index[2:(n+1)]
+ #     #neigh[[i]] <- colnames(data)[index]
+ #     neigh[i,] <- colnames(data)[index]
+ #   }
+ #   return(neigh)
+ # }
+```
+
+```{r}
+ neigh2 <- weight_bestn(correlation2,n = 2)
+ df2 <- cbind(rownames(correlation2),neigh2)
+```
