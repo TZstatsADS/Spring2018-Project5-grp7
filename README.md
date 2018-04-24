@@ -16,7 +16,8 @@ Term: Spring 2018
 We aim to combine and use the knowledge from other projects in this course, and build a product that has high functionality and usability. 
 
 The following word clouds shows the different cuisines, and the assortment of ingredients in our data set (the size reflects the number of recipes): 
-![image](figs/Rplot.png) ![image](figs/ingredients.png)
+
+![image](figs/Rplot.png)![image](figs/ingredients.png)
 
 	
 **Contribution statement**: ([default](doc/a_note_on_contributions.md)) All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement. 
