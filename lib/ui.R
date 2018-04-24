@@ -3,8 +3,8 @@ library(shinydashboard)
 library(d3heatmap)
 library(bubbles)
 library(slam)
-library(tm)
 library(NLP)
+library(tm)
 library(RColorBrewer)
 library(wordcloud2)
 library(ggplot2)
@@ -35,7 +35,10 @@ shinyUI(
                                 '))),
       tabItems(
         tabItem("Introduction",
-          "This is Introduction to the project"
+          h6("Project summary:"),
+          hr(),
+          "Food is an innate part of any culture or region. Every cuisine has some unique ingredients or some ingredients that are used in almost all of its dishes. If you visit Korea, the markets would be sprawled with kimchi and the smell of squids. The colourful and aromatic spice markets of India indicate the natural use of diverse spices in the Indian cooking. ",
+          "In this project, we predict the category of a dish's cuisine given a list of its ingredients. We are using Yummly's data which is arranged by Cuisine, dish ID, and its ingredients.We started off with 6849 ingredients, and used the bag-of-words model to reduce the number of ingredients to 2000. We have divided this project into two parts. The first part is to use different algorithms (Random Forests, XGBoost,SVM, Logistic Regression, Decision Tree,KNN) to predict the category of a dish, and aim at improving the accuracy the prediction. The second part is building an R Shiny app for exploratory data analysis, as well as recommend the cuisine and other related cuisines given a set of a ingredients. We aim to combine and use the knowledge from other projects in this course, and build a product that has high functionality and usability."
         ),
         tabItem("model_comp",
           "This page is talking about the modeling"
@@ -43,25 +46,25 @@ shinyUI(
         tabItem("whole_data_hist",
                 plotOutput("hist_wholedata")
         ),
-        # tabItem("",
-        #         
-        #         ),
         tabItem("word_cloud",
-                selectInput("selection", "Choose a cuisine:",choices = cuisine_type),
+                sidebarPanel(
+                  selectInput("selection", "Choose a cuisine:",choices = cuisine_type),
+                  sliderInput("threshold",label="Threshold for amount of ingredients",min=0,max=300,value=100),
+                  checkboxInput("specific_ingre","What's special?",value=FALSE)
+                ),
+                # checkboxInput("specific_ingre","What's special?",value=FALSE),
                 # fluidRow(
                 #   wordcloud2Output("wordcloud2",width = "100%", height = "500px")
                 # ),
-                fluidRow(
-                  # wordcloud2Output("wordcloud2"),
-                  textOutput("specific_ingre")
-                )
-                
+                mainPanel(
+                  wordcloud2Output("wordcloud2",width = "100%", height = "500px")
                 # fluidRow(
                 #   mainPanel(
                     # textOutput("specific_ingre")
                 #   )
                 # )
-                ),
+                )
+        ),
         # tabItem("distribution_part",
         #   # fluidRow(
         #   #   box(

@@ -1,9 +1,9 @@
-# ADS Project 5
+# ADS Project 5 : What shall we cook tonight ?
 ![image](figs/cooking.jpg)
 Term: Spring 2018
 
 + Team # 7
-+ **Project Title** : What shall we eat tonight? 
++ **Project Title** : What shall we cook tonight? 
 + **Team members**
 	+ Anshuma Chandak (ac4258)
 	+ Hanying Ji (hj2473)
