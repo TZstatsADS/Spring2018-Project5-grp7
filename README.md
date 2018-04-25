@@ -26,7 +26,7 @@ The following word clouds show the different cuisines, and the assortment of ing
 	
 **Contribution statement**: ([default](doc/a_note_on_contributions.md)) All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement. 
 
-+ Anshuma Chandak :
++ Anshuma Chandak : Explored different topics, and suggested the current topic. Kept track of the project and set the timelines.Updated the Readme file (Write up & Wordclouds). Train & test XG Boost & Decision Tree models.  
 + Hanying Ji : Mainly taking responsibility of building the R Shiny app for exploratory data analysis, which includes UI, serve and css style;
 + Qianhui Wan : help design and built the framework of shiny app and integrate all parts 
 + Lan Wen : Bag-of-words model, train/test data split, train and test Random Forest model
