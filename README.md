@@ -23,6 +23,10 @@ The following word clouds show the different cuisines, and the assortment of ing
 
 ![image](figs/Rplot.png)  ![image](figs/ingredients.png)
 
+In our project, we wish to apply a superior model to predict a specific cuisine given various different ingredients we put in. Image when it’s dinner time, you open the refrigerator and see there are kimchi, romaine lettuce inside. You wonder what to cook for tonight. So the shiny app could provide you a useful cooking recommendations given the ingredients you have. From the six algorithms we used in previous part, logistic regression model performs the best. For example, if you have kimchi and romaine lettuces as your inputs, you will get a predicted “Korean” cuisine result. 
+
+We also introduced Pearson Correlation algorithm to calculate the similarities between all 20 different cuisines in our dataset. So if you get a most relevant recommendation given the ingredients you have, the app could also provide other two most similar cuisines for your consideration. 
+
 	
 **Contribution statement**: ([default](doc/a_note_on_contributions.md)) All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement. 
 
