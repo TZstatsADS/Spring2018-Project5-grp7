@@ -34,7 +34,7 @@ shinyServer(function(input, output,session) {
     if(input$check_cb1){
       observeEvent(input$buttom_go,{
         output$model_result <- renderText({
-          a<-sample(cuisine_type,1)
+          a<-"korean"
           b<-df[df[,1]==a,c(2,3)]
           paste0("Your best choice is ",a,"."," You can also make ",b[1]," and ",b[2])
         })
@@ -42,7 +42,7 @@ shinyServer(function(input, output,session) {
     }else{
       observeEvent(input$buttom_go,{
         output$model_result <- renderText({
-          a<-sample(cuisine_type,1)
+          a<-"korean"
           paste0("Your best choice is ",a)
         })
       })
