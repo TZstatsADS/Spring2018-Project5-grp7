@@ -27,7 +27,7 @@ The following word clouds show the different cuisines, and the assortment of ing
 **Contribution statement**: ([default](doc/a_note_on_contributions.md)) All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement. 
 
 + Anshuma Chandak :
-+ Hanying Ji :
++ Hanying Ji : Mainly taking responsibility of building the R Shiny app for exploratory data analysis, which includes UI, serve and css style;
 + Lan Wen : Bag-of-words model, train/test data split, train and test Random Forest model
 + Qianhui Wan :
 + Xueying Ding : Applied SVM, KNN, Logistic model to classify
@@ -51,3 +51,4 @@ References:
 + [Kaggle Competition: What's cooking](https://www.kaggle.com/c/whats-cooking)
 + [XG Boost Reference](https://rpubs.com/mharris/multiclass_xgboost)
 + [Bag-of-words and Random Forest Reference](https://www.kaggle.com/normallydistrbuted/simple-bag-of-words-with-rf)
++ [Adding Style to Shiny App](http://bambooanalytics.co/blogs/howTo/shinystyle.html)
