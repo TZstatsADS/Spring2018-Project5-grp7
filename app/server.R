@@ -19,7 +19,9 @@ shinyServer(function(input, output,session) {
       theme(axis.text.x=element_text(angle=45,hjust=1,vjust=0.5))+
       xlab("Cuisine")
   })
-  
+  output$hist_result<- renderText({
+    "(1) 20 cuisines in total; (2)Italian has most dishes in our dataset; (3)Imbalanced classes"
+  })
 
   observeEvent(input$specific_ingre,{
     if(input$specific_ingre==FALSE){
@@ -32,23 +34,26 @@ shinyServer(function(input, output,session) {
       })
       }
     })
+
   observeEvent(input$check_cb1,{
     if(input$check_cb1){
       observeEvent(input$buttom_go,{
         output$model_result <- renderText({
-          a<-sample(cuisine_type,1)
-          b<-sample(cuisine_type,1)
-          paste0("Your best choice is ",a,"."," You can also make ",b,".")
-          #paste0("You can also make ",b,".")
+          a<-"chinese"
+          b<-df[df[,1]==a,c(2,3)]
+          paste0("Your best choice is ",a,"."," You can also make ",b[1]," and ",b[2])
         })
       })
     }else{
       observeEvent(input$buttom_go,{
         output$model_result <- renderText({
-          a<-sample(cuisine_type,1)
+          a<-"chinese"
           paste0("Your best choice is ",a)
         })
       })
     }
   })
+  
+  
+  
 })

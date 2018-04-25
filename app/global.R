@@ -1,6 +1,16 @@
 ##### summary of all cuisine
 setwd("/Users/JHY/Documents/2018SpringCourse/Applied Data Science/Spring2018-Project5-grp_7/app/")
 library(jsonlite)
+library(shiny)
+library(shinydashboard)
+library(d3heatmap)
+library(bubbles)
+library(slam)
+library(NLP)
+library(tm)
+library(RColorBrewer)
+library(wordcloud2)
+library(ggplot2)
 train<-fromJSON("../data/train.json")
 test<-fromJSON("../data/test.json")
 
@@ -25,6 +35,28 @@ for(type in cuisine_type){
   info_AllCuisine<-rbind(info_AllCuisine,info_OneCuisine)
 }
 rownames(info_AllCuisine)<-cuisine_type
+
+#correlation
+correlation <- cor(t(info_AllCuisine),use = "pairwise.complete.obs",method = "pearson")
+correlation <- round(correlation,4)
+
+weight_bestn <- function(data,n = 1){
+  neigh <- matrix(NA,nrow = 20,ncol = n)
+  for(i in 1:nrow(data)){
+    index <- order(abs(data[i,]),decreasing = TRUE)
+    index <- index[2:(n+1)]
+    #neigh[[i]] <- colnames(data)[index] 
+    neigh[i,] <- colnames(data)[index] 
+  }
+  return(neigh)
+}
+
+#n means how many outputs
+neigh <- weight_bestn(correlation,n = 2)
+#first column of df is input cuisine, other columns are output cuisines
+df <- cbind(rownames(correlation),neigh)
+
+
 
 ## for wordcloud
 ingre_freq<-data.frame(t(info_AllCuisine))
