@@ -8,6 +8,7 @@ library(tm)
 library(RColorBrewer)
 library(wordcloud2)
 library(ggplot2, warn.conflicts = FALSE)
+library(rsconnect, warn.conflicts = FALSE)
 #load("./data/test.RData")
 load("./data/train.RData")
 
