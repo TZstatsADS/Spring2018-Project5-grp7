@@ -28,8 +28,8 @@ The following word clouds show the different cuisines, and the assortment of ing
 
 + Anshuma Chandak :
 + Hanying Ji : Mainly taking responsibility of building the R Shiny app for exploratory data analysis, which includes UI, serve and css style;
++ Qianhui Wan : help design and built the framework of shiny app and integrate all parts 
 + Lan Wen : Bag-of-words model, train/test data split, train and test Random Forest model
-+ Qianhui Wan :
 + Xueying Ding : Applied SVM, KNN, Logistic model to classify
 
 Following [suggestions](http://nicercode.github.io/blog/2013-04-05-projects/) by [RICH FITZJOHN](http://nicercode.github.io/about/#Team) (@richfitz). This folder is orgarnized as follows.
