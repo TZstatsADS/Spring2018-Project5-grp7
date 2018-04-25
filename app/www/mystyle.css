@@ -7,7 +7,7 @@ body{
     /*position: fixed;*/
     background-image: url("cooking.png");
     background-repeat: no-repeat;
-    background-size: 1450px;
+    background-size: 1800px;
     background-position: center;
     background-color: rgba(255,255,255,.5);
     /*background-attachment: fixed;*/
@@ -44,7 +44,7 @@ h1{
   color: #000000;
 }
 h2 {
-  font-family: "Georgia", Times, "Times New Roman", serif;
+  font-family: 'Lobster', cursive;
   font-size: 2em;
   font-weight: 650;
   color: #C60000;
