@@ -50,3 +50,4 @@ Please see each subfolder for a README file.
 References:
 + [Kaggle Competition: What's cooking](https://www.kaggle.com/c/whats-cooking)
 + [XG Boost Reference](https://rpubs.com/mharris/multiclass_xgboost)
++ [Bag-of-words and Random Forest Reference](https://www.kaggle.com/normallydistrbuted/simple-bag-of-words-with-rf)
