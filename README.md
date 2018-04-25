@@ -32,6 +32,13 @@ The following word clouds show the different cuisines, and the assortment of ing
 + Lan Wen : Bag-of-words model, train/test data split, train and test Random Forest model
 + Xueying Ding : Applied SVM, KNN, Logistic model to classify
 
+
+References:
++ [Kaggle Competition: What's cooking](https://www.kaggle.com/c/whats-cooking)
++ [XG Boost Reference](https://rpubs.com/mharris/multiclass_xgboost)
++ [Bag-of-words and Random Forest Reference](https://www.kaggle.com/normallydistrbuted/simple-bag-of-words-with-rf)
++ [Adding Style to Shiny App](http://bambooanalytics.co/blogs/howTo/shinystyle.html)
+
 Following [suggestions](http://nicercode.github.io/blog/2013-04-05-projects/) by [RICH FITZJOHN](http://nicercode.github.io/about/#Team) (@richfitz). This folder is orgarnized as follows.
 
 ```
@@ -47,8 +54,3 @@ Please see each subfolder for a README file.
 
 
 
-References:
-+ [Kaggle Competition: What's cooking](https://www.kaggle.com/c/whats-cooking)
-+ [XG Boost Reference](https://rpubs.com/mharris/multiclass_xgboost)
-+ [Bag-of-words and Random Forest Reference](https://www.kaggle.com/normallydistrbuted/simple-bag-of-words-with-rf)
-+ [Adding Style to Shiny App](http://bambooanalytics.co/blogs/howTo/shinystyle.html)
