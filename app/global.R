@@ -1,18 +1,17 @@
 ##### summary of all cuisine
 #setwd("/Users/JHY/Documents/2018SpringCourse/Applied Data Science/Spring2018-Project5-grp_7/app/")
-library(jsonlite)
 library(shiny)
-library(shinydashboard)
-library(d3heatmap)
-library(bubbles)
+library(shinydashboard, warn.conflicts = FALSE)
 library(slam)
 library(NLP)
 library(tm)
 library(RColorBrewer)
 library(wordcloud2)
-library(ggplot2)
-train<-fromJSON("./data/train.json")
-test<-fromJSON("./data/test.json")
+library(ggplot2, warn.conflicts = FALSE)
+
+load("./data/test.RData")
+load("./data/train.RData")
+
 
 ingredients<-unique(unlist(train$ingredients))
 cuisine_type<-unique(unlist(train$cuisine))
