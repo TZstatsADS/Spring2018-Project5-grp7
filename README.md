@@ -30,11 +30,18 @@ We also introduced Pearson Correlation algorithm to calculate the similarities b
 	
 **Contribution statement**: ([default](doc/a_note_on_contributions.md)) All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement. 
 
-+ Anshuma Chandak :
++ Anshuma Chandak : Explored different topics, and suggested the current topic. Kept track of the project and set the timelines.Updated the Readme file (Write up & Wordclouds). Train & test XG Boost & Decision Tree models.  
 + Hanying Ji : Mainly taking responsibility of building the R Shiny app for exploratory data analysis, which includes UI, serve and css style;
 + Qianhui Wan : help design and built the framework of shiny app and integrate all parts 
 + Lan Wen : Bag-of-words model, train/test data split, train and test Random Forest model
 + Xueying Ding : Applied SVM, KNN, Logistic model to classify
+
+
+References:
++ [Kaggle Competition: What's cooking](https://www.kaggle.com/c/whats-cooking)
++ [XG Boost Reference](https://rpubs.com/mharris/multiclass_xgboost)
++ [Bag-of-words and Random Forest Reference](https://www.kaggle.com/normallydistrbuted/simple-bag-of-words-with-rf)
++ [Adding Style to Shiny App](http://bambooanalytics.co/blogs/howTo/shinystyle.html)
 
 Following [suggestions](http://nicercode.github.io/blog/2013-04-05-projects/) by [RICH FITZJOHN](http://nicercode.github.io/about/#Team) (@richfitz). This folder is orgarnized as follows.
 
@@ -51,8 +58,3 @@ Please see each subfolder for a README file.
 
 
 
-References:
-+ [Kaggle Competition: What's cooking](https://www.kaggle.com/c/whats-cooking)
-+ [XG Boost Reference](https://rpubs.com/mharris/multiclass_xgboost)
-+ [Bag-of-words and Random Forest Reference](https://www.kaggle.com/normallydistrbuted/simple-bag-of-words-with-rf)
-+ [Adding Style to Shiny App](http://bambooanalytics.co/blogs/howTo/shinystyle.html)
