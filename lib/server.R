@@ -20,16 +20,6 @@ shinyServer(function(input, output,session) {
       xlab("Cuisine")
   })
   
-  # output$heat_map<-renderD3heatmap({
-  #   d3heatmap(
-  #     info_AllCusine[,Top5_each_index],scale="row",dendrogram = "none",color="Blues"
-  #   )
-  # })
-  # output$bubble_chart_greek<- bubbles::renderBubbles({
-  #   bubbles(
-  #     each_Cuisine[[1]],label=names(each_Cuisine[[1]]),tooltip=names(each_Cuisine[[1]]),color = heat.colors(10, alpha = NULL)
-  #   )
-  # })
 
   observeEvent(input$specific_ingre,{
     if(input$specific_ingre==FALSE){
@@ -42,12 +32,23 @@ shinyServer(function(input, output,session) {
       })
       }
     })
-
-
-  # output$specific_ingre<-renderText({
-  #     names(which(colSums(info_AllCuisine_1[!(input$selection==cuisine_type),])==0))
-  #  })
-  output$model_result <- renderText({ 
-    "You best choice is Chinese Cuisine!We also recommend these cuisines for you: XXX,XXX,XXX. Choose the one you prefer. Then you may need to buy these ingredients"
+  observeEvent(input$check_cb1,{
+    if(input$check_cb1){
+      observeEvent(input$buttom_go,{
+        output$model_result <- renderText({
+          a<-sample(cuisine_type,1)
+          b<-sample(cuisine_type,1)
+          paste0("Your best choice is ",a,"."," You can also make ",b,".")
+          #paste0("You can also make ",b,".")
+        })
+      })
+    }else{
+      observeEvent(input$buttom_go,{
+        output$model_result <- renderText({
+          a<-sample(cuisine_type,1)
+          paste0("Your best choice is ",a)
+        })
+      })
+    }
   })
 })
