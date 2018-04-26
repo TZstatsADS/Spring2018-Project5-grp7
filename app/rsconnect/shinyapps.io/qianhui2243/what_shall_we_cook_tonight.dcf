@@ -1,0 +1,13 @@
+name: what_shall_we_cook_tonight
+title: What shall we cook tonight
+username:
+account: qianhui2243
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 330000
+bundleId: 1339213
+url: https://qianhui2243.shinyapps.io/what_shall_we_cook_tonight/
+when: 1524684072.39982
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: data/test.json|data/train.json
