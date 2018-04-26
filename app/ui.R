@@ -65,7 +65,7 @@ shinyUI(
             sidebarPanel(width=100,
               div(id="diy",
                   h3(helpText("choose the ingredients you have, we will make the best choice of cuisine for you.")),
-                  selectInput("check_ingre",h2("Put in your cuisine:"),colnames(info_AllCuisine),multiple = TRUE),
+                  selectInput("check_ingre",h2("Put in your ingredients:"),colnames(info_AllCuisine),multiple = TRUE),
                   checkboxInput("check_cb1", h3(helpText("Want more than 1 recommendation")), value = T),
                   actionButton("buttom_go","Go!")
               )
