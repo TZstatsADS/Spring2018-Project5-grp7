@@ -30,23 +30,79 @@ shinyServer(function(input, output,session) {
       }
     })
 
-  observeEvent(input$check_cb1,{
-    if(input$check_cb1){
-      observeEvent(input$buttom_go,{
+  # observeEvent(input$check_ingre,{
+  #   userdiy<-ifelse(ingre2000%in%input$check_ingre,1,0)
+  #   userdiy<-c(1,userdiy)
+  #   userdiy_sparse <- t(as(userdiy, "sparseMatrix"))
+  #   pred <- predict(fit, userdiy_sparse, type="class", s=fit$lambda.min)
+  # })
+  # observeEvent(input$check_cb1,{
+  #   if(input$check_cb1){
+  #     observeEvent(input$buttom_go,{
+  #       output$model_result <- renderText({
+  #         a<-result_txt()
+  #         b<-df[df[,1]==a,c(2,3)]
+  #         paste0("Your best choice is ",a,"."," You can also make ",b[1]," and ",b[2])
+  #       })
+  #     })
+  #   }else{
+  #     observeEvent(input$buttom_go,{
+  #       output$model_result <- renderText({
+  #         a<-result_txt()
+  #         paste0("Your best choice is ",a)
+  #       })
+  #     })
+  #   }
+  # })
+  # 
+  
+  
+  
+  result_txt <- eventReactive(input$buttom_go, {
+    userdiy<-ifelse(ingre2000%in%input$check_ingre,1,0)
+    userdiy<-c(1,userdiy)
+    userdiy_sparse <- t(as(userdiy, "sparseMatrix"))
+    pred <- predict(fit, userdiy_sparse, type="class", s=fit$lambda.min)
+  })
+  # 
+  # output$model_result<-renderText({
+  #   a<-result_txt()
+  #   paste0("Your best choice is ",a)
+  # })
+  
+  # observeEvent(input$check_ingre,{
+  #   if(is.null(input$check_ingre)){
+  #     output$model_result<-renderText({
+  #       NULL
+  #     })
+  #   }
+  # })
+observeEvent(input$check_ingre,{
+  if(!is.null(input$check_ingre)){
+    observeEvent(input$check_cb1,{
+      if(input$check_cb1){
         output$model_result <- renderText({
-          a<-"korean"
+          a<-result_txt()
           b<-df[df[,1]==a,c(2,3)]
           paste0("Your best choice is ",a,"."," You can also make ",b[1]," and ",b[2])
         })
-      })
-    }else{
-      observeEvent(input$buttom_go,{
+      }else{
         output$model_result <- renderText({
-          a<-"korean"
-          paste0("Your best choice is ",a)
+          a<-result_txt()
+          paste0("Your best choice is ",a,".")
         })
-      })
-    }
-  })
-
+      }
+    })
+  }else{
+    output$model_result<-renderText({
+      paste0("0")
+    })
+  }
 })
+
+  
+  
+  
+})
+
+

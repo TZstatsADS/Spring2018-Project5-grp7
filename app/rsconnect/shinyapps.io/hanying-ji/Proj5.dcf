@@ -5,8 +5,8 @@ account: hanying-ji
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 330278
-bundleId: 1339488
+bundleId: 1342491
 url: https://hanying-ji.shinyapps.io/Proj5/
-when: 1524690566.45793
+when: 1524809390.32128
 asMultiple: FALSE
 asStatic: FALSE

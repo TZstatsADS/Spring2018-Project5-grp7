@@ -12,7 +12,6 @@ library(rsconnect, warn.conflicts = FALSE)
 #load("./data/test.RData")
 load("./data/train.RData")
 
-
 ingredients<-unique(unlist(train$ingredients))
 cuisine_type<-unique(unlist(train$cuisine))
 # cooking_data<-matrix(0,nrow=dim(train),ncol=length(ingredients))
@@ -81,3 +80,8 @@ load("./data/info_AllCuisine_1.RData")
 # }
 # names(each_Cuisine)<-cuisine_type
 #        
+
+load("./data/logistic_model_shiny.RData")
+# ingre2000<-names(sort(colSums(cooking_data[,-ncol(cooking_data)]),decreasing=TRUE)[1:2000])
+# save(ingre2000,file="./data/ingre2000.RData")
+load("./data/ingre2000.RData")
