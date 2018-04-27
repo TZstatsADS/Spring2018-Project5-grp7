@@ -1,3 +1,12 @@
+library(shiny)
+library(shinydashboard)
+library(slam)
+library(RColorBrewer)
+library(wordcloud2)
+library(ggplot2)
+load("./data/cuisine_type.RData")
+load("./data/ingre2000.RData")
+
 shinyUI(
   dashboardPage(skin = "red",
     dashboardHeader(title="What shall we cook tonight?",titleWidth = 400),
