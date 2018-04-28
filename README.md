@@ -35,7 +35,7 @@ The following word clouds show the different cuisines, and the assortment of ing
 
 + Anshuma Chandak : Explored different topics, and suggested the current topic. Kept track of the project and set the timelines. Updated the Readme file (Write up & Wordclouds). Train & test XG Boost & Decision Tree models.  
 + Hanying Ji : Mainly taking responsibility of building the R Shiny app for exploratory data analysis, which includes UI, serve and css style.
-+ Qianhui Wan : Help design and built the framework of shiny app and integrate all parts. 
++ Qianhui Wan : Help design and built the framework of shiny app. integrate all parts in to Shiny app and the publish. 
 + Lan Wen : Bag-of-words model, train/test data split, train and test Random Forest model, data cleaning and transformation for R Shiny logistic regression model and retrain logistic regression model in R (for Shiny part).
 + Xueying Ding : Applied SVM, KNN, Logistic model to classify.
 
