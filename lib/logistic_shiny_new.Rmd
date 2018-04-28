@@ -1,0 +1,47 @@
+---
+title: "logistic regression"
+output: html_document
+---
+
+```{r}
+library(glmnet)
+```
+
+#(1)
+#feature
+```{r}
+# After SMOTE, the dataset becomes balanced but too large and my R cannot run logistic regression on more than 60000 obs. So I used a smaller dataset (the test dataset here) which contains 30000+ obs to train the model. And sampling 20000 randomly from train dataset here to test the model.
+
+set.seed(11)
+train <- read.csv("../output/logistic_shiny_train_update2.csv",header = TRUE,as.is = T)
+test <- read.csv("../output/logistic_shiny_test_update2.csv",header = TRUE,as.is = T)
+
+index <- sample(1:125408,size = 20000)
+train_sm <- train[index,]
+train_y <- train_sm[,1]
+train_x <- train_sm[,-1]
+
+test_y <- test[,1]
+test_x <- test[,-1]
+train_sparse <- sparse.model.matrix(~.,train_x)
+test_sparse <- sparse.model.matrix(~.,test_x)
+```
+
+#cross validation
+```{r,warning=FALSE}
+fit <- cv.glmnet(test_sparse, test_y, nfolds = 5, family = "multinomial")
+plot(fit,main = "logistic-feature")
+save(fit, file = "../output/logistic_model_shiny_update.RData")
+```
+
+```{r}
+#best lambda
+lambda <- fit$lambda.min
+lambda
+
+pred <- predict(fit, train_sparse, type="class", s=lambda)
+
+error <- mean(pred != train_y)
+error
+```
+
