@@ -4,7 +4,8 @@ library(slam)
 library(RColorBrewer)
 library(wordcloud2)
 library(ggplot2)
-
+library(Matrix)
+library(glmnet)
 load("./data/cuisine_type.RData")
 
 load("./data/hist.RData")
@@ -14,7 +15,7 @@ load("./data/df.RData")
 load("./data/ingre_freq.RData")
 ## specific ingredients for each cuisine
 load("./data/info_AllCuisine_1.RData")
-load("./data/logistic_model_shiny.RData")
+load("./data/logistic_model_shiny_update.RData")
 load("./data/ingre2000.RData")
 
 ########
@@ -58,7 +59,8 @@ shinyServer(function(input, output,session) {
     userdiy<-ifelse(ingre2000%in%input$check_ingre,1,0)
     userdiy<-c(1,userdiy)
     userdiy_sparse <- t(as(userdiy, "sparseMatrix"))
-    pred <- predict(fit, userdiy_sparse, type="class", s=fit$lambda.min)
+    lmd<-fit$lambda.min
+    pred <- predict(fit, newx=userdiy_sparse, type="class", s=lmd)
  })
  observeEvent(input$check_cb1,{
    if(input$check_cb1){
