@@ -7,7 +7,6 @@ library(ggplot2)
 library(Matrix)
 library(glmnet)
 load("./data/cuisine_type.RData")
-
 load("./data/hist.RData")
 #correlation
 load("./data/df.RData")
@@ -47,7 +46,7 @@ shinyServer(function(input, output,session) {
     }else{
       output$wordcloud2 <- renderWordcloud2({
         a<-info_AllCuisine_1[!(input$selection==cuisine_type),]
-        b<-names(a)[which(colSums(a)==0)]
+        b<-colnames(a)[which(colSums(a)==0)]
         whichrow<-ingre_freq$names %in% b
         wordcloud2(ingre_freq[whichrow,c("names",input$selection)],color="random-dark")
       })
